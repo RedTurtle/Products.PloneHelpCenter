@@ -7,7 +7,8 @@ try:
     import Products.CMFCore.permissions as CMFCorePermissions
 except ImportError:
     from Products.CMFCore import CMFCorePermissions
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import REFERENCEABLE_TYPES, GLOBAL_RIGHTS
 
 from Products import ATContentTypes as atct
 
@@ -39,13 +40,12 @@ HelpCenterItemSchema = Schema((
         multiValued=1,
         required=0,
         widget=MultiSelectionWidget(
-                label_msgid='phc_label_versions',
-                label= "Versions",
+                label=_('phc_label_versions',
+                        default=u"Versions"),
                 condition='object/getVersionsVocab',
-                description=('Versions of product that apply to this item '
-                             '(leave blank if not version-specific).'),
-                description_msgid = "phc_versions",
-                i18n_domain = "plonehelpcenter"
+                description=_("phc_versions",
+                              default=u"""'Versions of product that apply to this item
+                                       (leave blank if not version-specific)."""),
                 ),
         ),
 
@@ -57,12 +57,11 @@ HelpCenterItemSchema = Schema((
         condition='object/getSectionsVocab',
         index='KeywordIndex:schema',
         widget=MultiSelectionWidget(
-                label='Sections',
+                label=_("phc_label_sections",
+                        default=u'Sections'),
                 condition='object/getSectionsVocab',
-                description='Section(s) that this item should appear in.',
-                description_msgid = "phc_sections",
-                label_msgid = "phc_label_sections",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_sections",
+                              default=u'Section(s) that this item should appear in.'),
                 ),
         ),
 
@@ -74,12 +73,11 @@ HelpCenterItemSchema = Schema((
         condition="object/getAudiencesVocab",
         index='KeywordIndex:schema',
         widget=MultiSelectionWidget(
-                label='Audiences',
-                description='Audience(s) this item is targetted at.',
-                description_msgid = "phc_audiences",
+                label=_("phc_label_audiences",
+                        default=u'Audiences'),
+                description=_("phc_audiences",
+                              default=u'Audience(s) this item is targetted at.'),
                 condition="object/getAudiencesVocab",
-                label_msgid = "phc_label_audiences",
-                i18n_domain = "plonehelpcenter",
                 ),
         ),
 
@@ -88,11 +86,10 @@ HelpCenterItemSchema = Schema((
         accessor="Contributors",
         languageIndependent=1,
         widget=LinesWidget(
-                label='Contributors',
-                label_msgid="label_contributors",
-                description="Enter additional names (no need to include the current owner) for those who have contributed to this entry, one per line.",
-                description_msgid="help_contributors",
-                i18n_domain="plone",
+                label=_("label_contributors",
+                        default=u'Contributors'),
+                description=_("help_contributors",
+                              default=u"Enter additional names (no need to include the current owner) for those who have contributed to this entry, one per line."),
                 ),
         ),
 
@@ -104,22 +101,20 @@ HelpCenterItemSchema = Schema((
         enforceVocabulary=0,
         isMetadata=1,
         widget=PHCKeywordWidget(
-                label='Related keywords',
-                label_msgid = "phc_label_related",
-                i18n_domain="plonehelpcenter",
+                label=_("phc_label_related",
+                        default=u'Related keywords'),
         ),
     ),
 
     BooleanField(
         'startHere',
         index='FieldIndex:schema',
-        permission = CMFCorePermissions.ReviewPortalContent,
+        permission=CMFCorePermissions.ReviewPortalContent,
         widget=BooleanWidget(
-                label='Start Here',
-                description="Marks this as a good starting point for its section. Only key documents should have this property.",
-                description_msgid = "phc_starthere",
-                label_msgid = "phc_label_starthere",
-                i18n_domain="plonehelpcenter"
+                label=_("phc_label_starthere",
+                        default=u'Start Here'),
+                description=_("phc_starthere",
+                              default=u"Marks this as a good starting point for its section. Only key documents should have this property."),
         ),
     ),
 
@@ -127,15 +122,14 @@ HelpCenterItemSchema = Schema((
         'relatedItems',
         relationship='PloneHelpCenter',
         allowed_types=REFERENCEABLE_TYPES,
-        required = 0,
+        required=0,
         multiValued=1,
         languageIndependent=1,
         widget=PHCReferenceWidget(
-                label="Referenced Items",
-                description="Set one or more references to HelpCenter items.",
-                description_msgid = "phc_reference",
-                label_msgid = "phc_label_reference",
-                i18n_domain="plonehelpcenter"
+                label=_("phc_label_reference",
+                        default=u"Referenced Items"),
+                description=_("phc_reference",
+                              default=u"Set one or more references to HelpCenter items."),
                 ),
     ),
 
@@ -153,13 +147,12 @@ HelpCenterItemSchemaNarrow = Schema((
         multiValued=1,
         required=0,
         widget=MultiSelectionWidget(
-                label_msgid='phc_label_versions',
-                label= "Versions",
+                label=_('phc_label_versions',
+                        default=u"Versions"),
                 condition='object/getVersionsVocab',
-                description=('Versions of product that apply to this item '
-                             '(leave blank if not version-specific).'),
-                description_msgid = "phc_versions",
-                i18n_domain = "plonehelpcenter"
+                description=_("phc_versions",
+                              default=u"""Versions of product that apply to this item
+                              (leave blank if not version-specific)."""),
                 ),
         ),
 
@@ -171,12 +164,11 @@ HelpCenterItemSchemaNarrow = Schema((
         condition='object/getSectionsVocab',
         index='KeywordIndex:schema',
         widget=MultiSelectionWidget(
-                label='Sections',
+                label=_("phc_label_sections",
+                        default=u'Sections'),
                 condition='object/getSectionsVocab',
-                description='Section(s) that this item should appear in.',
-                description_msgid = "phc_sections",
-                label_msgid = "phc_label_sections",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_sections",
+                              default=u'Section(s) that this item should appear in.'),
                 ),
         ),
 
@@ -188,25 +180,24 @@ HelpCenterItemSchemaNarrow = Schema((
         condition="object/getAudiencesVocab",
         index='KeywordIndex',
         widget=MultiSelectionWidget(
-                label='Audiences',
-                description='Audience(s) this item is targetted at.',
-                description_msgid = "phc_audiences",
+                label=_("phc_label_audiences",
+                        default=u'Audiences'),
+                description=_("phc_audiences",
+                              default=u'Audience(s) this item is targetted at.'),
                 condition="object/getAudiencesVocab",
-                label_msgid = "phc_label_audiences",
-                i18n_domain = "plonehelpcenter",
                 ),
         ),
 
     BooleanField(
         'startHere',
         index='FieldIndex',
-        permission = CMFCorePermissions.ReviewPortalContent,
+        permission=CMFCorePermissions.ReviewPortalContent,
         widget=BooleanWidget(
-                label='Start Here',
-                description="Marks this as a good starting point for its section. Only key documents should have this property.",
-                description_msgid = "phc_starthere",
-                label_msgid = "phc_label_starthere",
-                i18n_domain="plonehelpcenter"
+                label=_("phc_label_starthere",
+                        default=u'Start Here'),
+                description=_("phc_starthere",
+                              default=u"Marks this as a good starting point for its section. Only key documents should have this property."),
+
         ),
     ),
 
@@ -224,14 +215,13 @@ HelpCenterContainerSchema = Schema((
         edit_accessor='getRawSectionsVocab',
         mutator='setSectionsVocab',
         widget=LinesWidget(
-            label="Sections",
-            description=("One section on each line. Used for grouping items. "
-                         "If you leave this blank, the help center's "
-                         "sections will be used. If both are blank, "
-                         "sections will not be used."),
-            description_msgid = "phc_sections_vocab",
-            label_msgid = "phc_label_sections-vocab",
-            i18n_domain="plonehelpcenter",
+            label=_("phc_label_sections-vocab",
+                    default=u"Sections"),
+            description=_("phc_sections_vocab",
+                          default="""One section on each line. Used for grouping items.
+                          If you leave this blank, the help center's
+                          sections will be used. If both are blank,
+                          sections will not be used."""),
             rows=6,
             )
         ),

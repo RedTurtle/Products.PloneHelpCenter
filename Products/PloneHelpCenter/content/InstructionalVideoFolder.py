@@ -14,7 +14,8 @@ except ImportError:
     from Products.Archetypes.public import *
 
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
 from PHCFolder import PHCFolder
@@ -25,15 +26,14 @@ InstructionalVideoFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         'description',
         searchable=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description_msgid="phc_desc_video_folder",
-                description="Description for the Video section.",
-                label_msgid="phc_label_video_folder",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_desc_video_folder",
+                              default=u"Description for the Video section."),
+                label=_("phc_label_video_folder",
+                        default=u"Description"),
                 rows=6),
                 ),
     ),) + HelpCenterContainerSchema
@@ -53,7 +53,7 @@ class HelpCenterInstructionalVideoFolder(PHCFolder, ATContentTypes.content.folde
     filter_content_types = 1
     allowed_content_types = ('HelpCenterInstructionalVideo', )
 
-    typeDescription= 'A Video Section can contain instructional Flash videos.'
+    typeDescription = 'A Video Section can contain instructional Flash videos.'
     typeDescMsgId = 'description_edit_instructionalvideofolder'
 
     security = ClassSecurityInfo()

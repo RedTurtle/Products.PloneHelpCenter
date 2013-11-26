@@ -3,7 +3,8 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
 
@@ -15,14 +16,14 @@ LinkSchema = HelpCenterBaseSchema + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
-        widget=TextAreaWidget(description_msgid="description_edit_Link",
-                description="Description for the Link.",
-                label_msgid="description_label_Link",
-                label="Description",
-                i18n_domain = "plonehelpcenter"),
+        widget=TextAreaWidget(
+                description=_("description_edit_Link",
+                             default=u"Description for the Link."),
+                label=_("description_label_Link",
+                        default=u"Description")),
         ),
 
     StringField(
@@ -33,11 +34,10 @@ LinkSchema = HelpCenterBaseSchema + Schema((
         default='http://',
         languageIndependent=1,
         widget=StringWidget(
-                description_msgid='phc_desc_link_url',
-                description='Web address.',
-                label_msgid='phc_label_link_url',
-                label='URL',
-                i18n_domain='plonehelpcenter',
+                description=_('phc_desc_link_url',
+                              default=u'Web address.'),
+                label=_('phc_label_link_url',
+                        default=u'URL'),
                 ),
         ),
     ),
@@ -61,7 +61,7 @@ class HelpCenterLink(PHCContent, BaseContent):
     global_allow = 0
     # allow_discussion = IS_DISCUSSABLE
 
-    typeDescription= 'Links are links to other documentation and resources.'
+    typeDescription = 'Links are links to other documentation and resources.'
     typeDescMsgId = 'description_edit_link'
 
     # aliases = PHCContent.aliases.copy()

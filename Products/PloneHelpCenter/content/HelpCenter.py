@@ -34,7 +34,10 @@ from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME, MANUAL_DESCRIPTION, GLOBALS, \
+                                            MANUAL_TITLE, MANUAL_MIMETYPE, \
+                                            MANUAL_SECTION, MANUAL_ID, MANUAL_PATH
 from Products.CMFPlone.utils import _createObjectByType
 
 import os
@@ -46,15 +49,14 @@ HCRootSchema = BaseFolderSchema + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description_msgid="phc_desc_helpcenter",
-                description="Description for the Help Center.",
-                label_msgid="phc_label_desc_helpcenter",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_desc_helpcenter",
+                              default=u"Description for the Help Center."),
+                label=_("phc_label_desc_helpcenter",
+                        default=u"Description"),
                 rows=6,
                 ),
         ),
@@ -67,11 +69,10 @@ HCRootSchema = BaseFolderSchema + Schema((
         required=0,
         languageIndependent=1,
         widget=LinesWidget(
-                description_msgid="phc_audience_helpcenter",
-                description="One type of audience on each line. If you leave this blank, audience information will not be used. Audience is typically 'End user', 'Developer' and similar.",
-                label="Documentation Audiences",
-                label_msgid="phc_label_audience_helpcenter",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_audience_helpcenter",
+                              default=u"One type of audience on each line. If you leave this blank, audience information will not be used. Audience is typically 'End user', 'Developer' and similar."),
+                label=_("Documentation Audiences",
+                        default=u"phc_label_audience_helpcenter"),
                 ),
         ),
 
@@ -83,11 +84,9 @@ HCRootSchema = BaseFolderSchema + Schema((
         required=0,
         languageIndependent=1,
         widget=LinesWidget(
-                description_msgid="phc_version_helpcenter",
-                description="One version on each line, if you're documenting different versions of software. If you leave this blank, version information will not be used.",
-                label="Versions",
-                label_msgid="phc_label_version_helpcenter",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_version_helpcenter",
+                              default=u"One version on each line, if you're documenting different versions of software. If you leave this blank, version information will not be used."),
+                label=_("phc_label_version_helpcenter", default=u"Versions"),
                 ),
         ),
 
@@ -98,11 +97,10 @@ HCRootSchema = BaseFolderSchema + Schema((
         languageIndependent=1,
         vocabulary='getVersionsVocab',
         widget=MultiSelectionWidget(
-            description_msgid="phc_current_versions_helpcenter",
-            description="Readers will be informed when content relates to versions not in this list, as it may be outdated.",
-            label="Current Versions",
-            label_msgid="phc_label_current_versions_helpcenter",
-            i18n_domain = "plonehelpcenter",
+            description=_("phc_current_versions_helpcenter",
+                          default=u"Readers will be informed when content relates to versions not in this list, as it may be outdated."),
+            label=_("phc_label_current_versions_helpcenter",
+                    default=u"Current Versions"),
             ),
         ),
 
@@ -112,12 +110,10 @@ HCRootSchema = BaseFolderSchema + Schema((
         edit_accessor='getRawSectionsVocab',
         mutator='setSectionsVocab',
         widget=LinesWidget(
-            label="Sections",
-            description=("One section on each line. Used for grouping items. "
-                         "May be overriden in individual help center folders."),
-            description_msgid = "phc_topsections_vocab",
-            label_msgid = "phc_label_sections-vocab",
-            i18n_domain="plonehelpcenter",
+            label=_("phc_label_sections-vocab", default=u"Sections"),
+            description=_("phc_topsections_vocab",
+                          default=u"One section on each line. Used for grouping items. "
+                                  "May be overriden in individual help center folders."),
             rows=6,
             )
         ),
@@ -126,11 +122,10 @@ HCRootSchema = BaseFolderSchema + Schema((
         'rights',
         accessor="Rights",
         widget=TextAreaWidget(
-                label='Copyright',
-                description="Copyright info for all content in the helpcenter.",
-                label_msgid="phc_label_copyrights_helpcenter",
-                description_msgid="phc_copyrights_helpcenter",
-                i18n_domain="plonehelpcenter"
+                label=_("phc_label_copyrights_helpcenter",
+                        default=u'Copyright'),
+                description=_("phc_copyrights_helpcenter",
+                              default=u"Copyright info for all content in the helpcenter."),
                 ),
         ),
 
@@ -140,14 +135,13 @@ HCRootSchema = BaseFolderSchema + Schema((
         required=0,
         languageIndependent=1,
         widget=BooleanWidget(
-                label='Constrain Searches',
-                description="""Constrain the results of Help Center searches to this document area.
+                label=_("phc_label_constrainSearches_helpcenter",
+                        default=u'Constrain Searches'),
+                description=_("phc_constrainSearches_helpcenter",
+                              default=u"""Constrain the results of Help Center searches to this document area.
                     Turn this off to search the entire site.
                     This affects only the Help Center's search facility, not the global search.
-                """,
-                label_msgid="phc_label_constrainSearches_helpcenter",
-                description_msgid="phc_constrainSearches_helpcenter",
-                i18n_domain="plonehelpcenter"
+                """),
             ),
         ),
     ),)
@@ -360,7 +354,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                 manual.setTitle(MANUAL_TITLE)
                 manual.setDescription(MANUAL_DESCRIPTION)
                 manual.setSections([MANUAL_SECTION])
-                manual.setText(manualText, mimetype = MANUAL_MIMETYPE)
+                manual.setText(manualText, mimetype=MANUAL_MIMETYPE)
                 manual.reindexObject()
 
                 # Publish it

@@ -4,7 +4,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME, IMAGE_SIZES
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
 
@@ -15,15 +16,14 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         required=1,
         searchable=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                 description = "Brief explanation of the video's content.",
-                 description_msgid = "phc_help_detailed_video",
-                 label = "Summary",
-                 label_msgid = "phc_label_detailed_video",
-                 i18n_domain = "plonehelpcenter"
+                 description=_("phc_help_detailed_video",
+                               default=u"Brief explanation of the video's content."),
+                 label=_("phc_label_detailed_video",
+                         default=u"Summary"),
               ),
         ),
 
@@ -32,11 +32,10 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         required=1,
         primary=1,
         widget=FileWidget(
-            description="Click 'Browse' to upload a Flash .swf file.",
-            description_msgid="phc_help_videofile_description",
-            label="Flash File (.swf)",
-            label_msgid="phc_label_videofile_description",
-            i18n_domain="plonehelpcenter",
+            description=_("phc_help_videofile_description",
+                          default=u"Click 'Browse' to upload a Flash .swf file."),
+            label=_("phc_label_videofile_description",
+                    default=u"Flash File (.swf)"),
             ),
         ),
 
@@ -45,13 +44,11 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         required=0,
         sizes=IMAGE_SIZES,
         widget=ImageWidget(
-            label='Screenshot',
-            label_msgid='phc_label_video_screenshot',
-            description=('Add a screenshot by clicking the \'Browse\' '
-                         'button. Add a screenshot that highlights the '
-                         'content of the instructional video.'),
-            description_msgid='phc_help_video_screenshot',
-            i18n_domain='plonehelpcenter',
+            label=_('phc_label_video_screenshot',
+                    default=u'Screenshot'),
+            description=_('phc_help_video_screenshot',
+                          default=u"""Add a screenshot by clicking the "Browse" button.
+                          Add a screenshot that highlights the content of the instructional video."""),
             ),
         ),
 
@@ -59,11 +56,10 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         'duration',
         required=0,
         widget=StringWidget(
-            description_msgid='phc_help_video_duration',
-            description='Length (in minutes) of the video.',
-            label_msgid='phc_label_video_duration',
-            label='Duration',
-            i18n_domain='plonehelpcenter',
+            description=_('phc_help_video_duration',
+                          default=u'Length (in minutes) of the video.'),
+            label=_('phc_label_video_duration',
+                    default=u'Duration'),
             ),
         ),
 
@@ -73,11 +69,10 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         default='800',
         validators=('isInt',),
         widget=IntegerWidget(
-            description_msgid='phc_help_video_width',
-            description='Width of the video.',
-            label_msgid='phc_label_video_width',
-            label='Width',
-            i18n_domain='plonehelpcenter',
+            description=_('phc_help_video_width',
+                          default=u'Width of the video.'),
+            label=_('phc_label_video_width',
+                    default=u'Width'),
             ),
         ),
 
@@ -87,11 +82,10 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         default='600',
         validators=('isInt',),
         widget=IntegerWidget(
-            description_msgid='phc_help_video_height',
-            description='Height of the video.',
-            label_msgid='phc_label_video_height',
-            label='Height',
-            i18n_domain='plonehelpcenter',
+            description=_('phc_help_video_height',
+                          default=u'Height of the video.'),
+            label=_('phc_label_video_height',
+                    default='Height'),
             ),
         ),
     ),
@@ -119,7 +113,7 @@ class HelpCenterInstructionalVideo(PHCContent, BaseContent):
     global_allow = 0
     # allow_discussion = IS_DISCUSSABLE
 
-    typeDescription= 'An Instructional Video can be used to upload Flash instructional videos.'
+    typeDescription = 'An Instructional Video can be used to upload Flash instructional videos.'
     typeDescMsgId = 'description_edit_instructionalvideo'
 
     # aliases = PHCContent.aliases.copy()

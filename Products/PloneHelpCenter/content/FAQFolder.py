@@ -13,7 +13,8 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
 from Products import ATContentTypes
@@ -25,15 +26,13 @@ FAQFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description="Description of the FAQ Container.",
-                description_msgid="phc_desc_folder",
-                label_msgid="phc_label_folder",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_desc_folder",
+                              default=u"Description of the FAQ Container."),
+                label=_("phc_label_folder", default=u"Description"),
                 rows=6,)
               ),
     ),) + HelpCenterContainerSchema
@@ -55,7 +54,7 @@ class HelpCenterFAQFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
 
     security = ClassSecurityInfo()
 
-    typeDescription= 'An FAQ Section can hold frequently asked questions with answers.'
+    typeDescription = 'An FAQ Section can hold frequently asked questions with answers.'
     typeDescMsgId = 'description_edit_faqfolder'
 
     # def getTOCSelectOptions(self, current=None):

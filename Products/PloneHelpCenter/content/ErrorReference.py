@@ -5,7 +5,8 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from HowTo import HowToSchema, HelpCenterHowTo
 
 ErrorReferenceSchema = HowToSchema.copy()
@@ -13,9 +14,8 @@ ErrorReferenceSchema = HowToSchema.copy()
 # del ErrorReferenceSchema['sections']
 # del ErrorReferenceSchema['audiences']
 # del ErrorReferenceSchema['startHere']
-ErrorReferenceSchema['text'].widget.description='Explanation of the error.'
-ErrorReferenceSchema['text'].widget.description_msgid='phc_help_body_ErrorReference'
-ErrorReferenceSchema['text'].widget.i18n_domain = "plonehelpcenter"
+ErrorReferenceSchema['text'].widget.description = _('phc_help_body_ErrorReference',
+                                                    default=u'Explanation of the error.')
 
 
 class HelpCenterErrorReference(HelpCenterHowTo):
@@ -29,7 +29,7 @@ class HelpCenterErrorReference(HelpCenterHowTo):
     archetype_name = 'Error Reference'
     meta_type = 'HelpCenterErrorReference'
 
-    typeDescription= 'An Error Reference can be used to explain a particular error which may arise.'
+    typeDescription = 'An Error Reference can be used to explain a particular error which may arise.'
     typeDescMsgId = 'description_edit_errorreference'
 
     security = ClassSecurityInfo()

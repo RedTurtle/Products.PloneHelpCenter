@@ -11,7 +11,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
 from PHCFolder import PHCFolder
@@ -24,16 +25,15 @@ GlossarySchema = HelpCenterBaseSchemaFolderish + Schema((
         required=1,
         primary=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description="Description of the Glossary.",
-                description_msgid="phc_desc_folder_glossary",
-                label_msgid="phc_label_folder_glossary",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
-                rows= 6,
+                description=_("phc_desc_folder_glossary",
+                              default=u"Description of the Glossary."),
+                label=_("phc_label_folder_glossary",
+                        default=u"Description"),
+                rows=6,
                 )
         ),
     ),) + HelpCenterContainerSchema
@@ -55,7 +55,7 @@ class HelpCenterGlossary(PHCFolder, ATContentTypes.content.folder.ATFolder):
     filter_content_types = 1
     allowed_content_types = ('HelpCenterDefinition', )
 
-    typeDescription= 'A Glossary can be used to hold definitions of common terms, listing them in a dictionary-like manner.'
+    typeDescription = 'A Glossary can be used to hold definitions of common terms, listing them in a dictionary-like manner.'
     typeDescMsgId = 'description_edit_glossary'
 
     security = ClassSecurityInfo()

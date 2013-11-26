@@ -13,7 +13,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
 from Products import ATContentTypes
@@ -26,15 +27,14 @@ HowToFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description_msgid="phc_desc_howto_folder",
-                description="Description for the How-to section.",
-                label_msgid="phc_label_howto_folder",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_desc_howto_folder",
+                              default="Description for the How-to section."),
+                label=_("phc_label_howto_folder",
+                        default=u"Description"),
                 rows=6,
                 )
         ),
@@ -55,7 +55,7 @@ class HelpCenterHowToFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     filter_content_types = 1
     allowed_content_types = ('HelpCenterHowTo', )
 
-    typeDescription= 'A How-to Section can contain how-to documents.'
+    typeDescription = 'A How-to Section can contain how-to documents.'
     typeDescMsgId = 'description_edit_howtofolder'
 
     security = ClassSecurityInfo()

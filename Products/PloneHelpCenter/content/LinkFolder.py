@@ -13,7 +13,8 @@ except ImportError:
     from Products.Archetypes.public import *
 
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
 from Products import ATContentTypes
@@ -26,15 +27,14 @@ LinkFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description_msgid="description_description_LinkFolder",
-                description="Description for the Link section.",
-                label_msgid="label_description_LinkFolder",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("description_description_LinkFolder",
+                              default=u"Description for the Link section."),
+                label=_("label_description_LinkFolder",
+                        default=u"Description"),
                 rows=6,
                 )
         ),
@@ -55,7 +55,7 @@ class HelpCenterLinkFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     filter_content_types = 1
     allowed_content_types = ('HelpCenterLink', )
 
-    typeDescription= 'A Link Section can contain links to other documentation.'
+    typeDescription = 'A Link Section can contain links to other documentation.'
     typeDescMsgId = 'description_edit_linkfolder'
 
     security = ClassSecurityInfo()

@@ -20,6 +20,10 @@ setDefaultRoles(ADD_DOCUMENTATION_PERMISSION, ('Manager', 'Member',))
 PROJECTNAME = "PloneHelpCenter"
 SKINS_DIR = 'skins'
 
+from zope.i18nmessageid import MessageFactory
+
+phcMessageFactory = MessageFactory('plonehelpcenter')
+
 GLOBALS = globals()
 
 # If plone.memoize is available, the minutes to cache

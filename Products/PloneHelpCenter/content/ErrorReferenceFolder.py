@@ -14,7 +14,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
 from PHCFolder import PHCFolder
@@ -25,15 +26,14 @@ ErrorReferenceFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-            description_msgid="description_edit_ErrorReferenceFolder",
-            description="Description for the Error Reference section.",
-            label_msgid="description_label_ErrorReferenceFolder",
-            label="Description",
-            i18n_domain = "plonehelpcenter",
+            description=_("description_edit_ErrorReferenceFolder",
+                          default=u"Description for the Error Reference section."),
+            label=_("description_label_ErrorReferenceFolder",
+                    default=u"Description"),
             rows=6)
         ),
     ),) + HelpCenterContainerSchema
@@ -55,7 +55,7 @@ class HelpCenterErrorReferenceFolder(PHCFolder, ATContentTypes.content.folder.AT
     filter_content_types = 1
     allowed_content_types = ('HelpCenterErrorReference', )
 
-    typeDescription= 'An Error Reference Section can contain references to and explanations of common errors.'
+    typeDescription = 'An Error Reference Section can contain references to and explanations of common errors.'
     typeDescMsgId = 'description_edit_errorreferencefolder'
 
     security = ClassSecurityInfo()

@@ -13,7 +13,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 from AccessControl import ClassSecurityInfo
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
 from Products import ATContentTypes
@@ -26,15 +27,14 @@ TutorialFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         searchable=1,
         required=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=MetadataStorage(),
         widget=TextAreaWidget(
-                description_msgid="phc_desc_folder_tutorial",
-                description="Description for the tutorials section.",
-                label_msgid="phc_label_folder_tutorial",
-                label="Description",
-                i18n_domain = "plonehelpcenter",
+                description=_("phc_desc_folder_tutorial",
+                              default=u"Description for the tutorials section."),
+                label=_("phc_label_folder_tutorial",
+                        default=u"Description"),
                 rows=6,
                 ),
         ),

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plonehelpcenter-es\n"
-"POT-Creation-Date: 2013-09-23 23:42+0000\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: 2007-03-12 11:38+0200\n"
 "Last-Translator: Fernando de los Ríos <fdelosrios@ub.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,12 +14,51 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plonehelpcenter\n"
 
+#: ./profiles/default/types/HelpCenterDefinition.xml
+msgid "A Definition defines a special term, and will be listed in the glossary."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterHowToFolder.xml
+msgid "A How-to Section can contain how-to documents."
+msgstr ""
+
 #: ./profiles/default/types/HelpCenterReferenceManualPage.xml
 msgid "A Page in a reference manual."
 msgstr ""
 
 #: ./profiles/default/types/HelpCenterLeafPage.xml
 msgid "A page in a help center."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterLink.xml
+msgid "A simple archetype"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterInstructionalVideoFolder.xml
+#: ./profiles/default/types/HelpCenterLinkFolder.xml
+#: ./profiles/default/types/HelpCenterReferenceManualFolder.xml
+msgid "A simple folderish archetype"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenter.xml
+msgid "A simple knowledge-base facility."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterTutorial.xml
+msgid "A tutorial containing TutorialPages, Files and Images."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterFAQFolder.xml
+msgid "An FAQ Section can hold frequently asked questions with answers."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterDefinition.xml
+msgid "Definition"
+msgstr ""
+
+#. Default: "phc_label_audience_helpcenter"
+#: ./content/HelpCenter.py:74
+msgid "Documentation Audiences"
 msgstr ""
 
 #. Default: "Duration:"
@@ -33,31 +72,91 @@ msgstr "Duración:"
 msgid "Edit"
 msgstr ""
 
+#: ./profiles/default/types/HelpCenterErrorReference.xml
+msgid "Error Reference"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterErrorReferenceFolder.xml
+msgid "Error Reference Section"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterFAQ.xml
+msgid "FAQ"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterFAQFolder.xml
+msgid "FAQ Section"
+msgstr ""
+
 #. Default: "Find and modify content"
 #: ./skins/plone_help_center/phc_stats.cpt:17
 msgid "Find and modify content"
 msgstr "Busca y modifica contenidos"
+
+#: ./profiles/default/types/HelpCenterGlossary.xml
+msgid "Glossary"
+msgstr ""
 
 #. Default: "Go"
 #: ./skins/plone_help_center/referencemanual_macros.pt:129
 msgid "Go"
 msgstr "Ir"
 
+#: ./profiles/default/types/HelpCenter.xml
+msgid "Help Center"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterLink.xml
+msgid "Help Center Link"
+msgstr ""
+
 #. Default: "Help Center Statistics and Maintenance"
 #: ./skins/plone_help_center/phc_stats.cpt:11
 msgid "Help Center Statistics and Maintenance"
 msgstr "Estadísticas y mantenimiento del Help Center"
 
+#: ./profiles/default/types/HelpCenterHowTo.xml
+msgid "How-to"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterHowToFolder.xml
+msgid "How-to Section"
+msgstr ""
+
 #: ./browser/phc_topic.pt:15
 msgid "In This Section..."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterKnowledgeBase.xml
+msgid "Knowledge Base"
 msgstr ""
 
 #: ./profiles/default/types/HelpCenterLeafPage.xml
 msgid "Leaf Page"
 msgstr ""
 
+#: ./profiles/default/types/HelpCenterLinkFolder.xml
+msgid "Link Section"
+msgstr ""
+
 #: ./profiles/default/types/HelpCenterReferenceManualPage.xml
 msgid "Manual Page"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterKnowledgeBase.xml
+msgid "Organizes howtos and tutorials by topic and audience"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterTutorialPage.xml
+msgid "Part of a tutorial."
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterReferenceManual.xml
+msgid "Reference Manual"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterReferenceManualFolder.xml
+msgid "Reference Manual Section"
 msgstr ""
 
 #. Default: "Search"
@@ -73,6 +172,10 @@ msgstr ""
 #: ./skins/plone_help_center/phc_stats.cpt:37
 msgid "Search for content"
 msgstr "Búsqueda"
+
+#: ./profiles/default/types/HelpCenterReferenceManualSection.xml
+msgid "Section"
+msgstr ""
 
 #. Default: "Size:"
 #: ./skins/plone_help_center/ivideofolder_view.pt:81
@@ -101,10 +204,30 @@ msgstr "Este ítem se aplica a una versión anterior."
 msgid "This video applies to a previous version"
 msgstr "Este vídeo se aplica a una versión anterior."
 
+#: ./profiles/default/types/HelpCenterTutorial.xml
+msgid "Tutorial"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterTutorialPage.xml
+msgid "Tutorial Page"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterTutorialFolder.xml
+msgid "Tutorial Section"
+msgstr ""
+
 #. Default: "Using the criteria below, you can find content and then modify it from the search results page."
 #: ./skins/plone_help_center/phc_stats.cpt:19
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
 msgstr "Utilizando los siguientes criterios puede encontrar y modificar contenidos desde la página de resultados."
+
+#: ./profiles/default/types/HelpCenterInstructionalVideo.xml
+msgid "Video"
+msgstr ""
+
+#: ./profiles/default/types/HelpCenterInstructionalVideoFolder.xml
+msgid "Video Section"
+msgstr ""
 
 #: ./profiles/default/types/HelpCenterErrorReference.xml
 #: ./profiles/default/types/HelpCenterFAQ.xml
@@ -124,7 +247,7 @@ msgstr "Teclas rápidas de búsqueda"
 msgid "all_content_on_one_page"
 msgstr ""
 
-#. Default: "All ${number} ${title}â€¦"
+#. Default: "<span>x</span> ${number} ${title}â€¦"
 #: ./skins/plone_help_center/helpcenter_view.pt:135
 #, fuzzy
 msgid "all_helptype"
@@ -170,6 +293,11 @@ msgstr "Tiene más de una audiencia seleccionada"
 msgid "description_audiences_or"
 msgstr "Coincidir con cualquiera"
 
+#. Default: "Description for the Link section."
+#: ./content/LinkFolder.py:34
+msgid "description_description_LinkFolder"
+msgstr ""
+
 #. Default: "This search form enables you to find documenation by specifying one or more search terms."
 #: ./skins/plone_help_center/phc_asearch_form.pt:16
 msgid "description_documentation_asearch"
@@ -179,7 +307,13 @@ msgstr ""
 msgid "description_edit_ErrorReference"
 msgstr "Descripción del contenedor de referencias de error"
 
+#. Default: "Description for the Error Reference section."
+#: ./content/ErrorReferenceFolder.py:33
+msgid "description_edit_ErrorReferenceFolder"
+msgstr ""
+
 #. Default: "Description for the Link."
+#: ./content/Link.py:23
 msgid "description_edit_Link"
 msgstr "Descripción del link"
 
@@ -192,6 +326,12 @@ msgid "description_label_ErrorReference"
 msgstr "Descripción"
 
 #. Default: "Description"
+#: ./content/ErrorReferenceFolder.py:35
+msgid "description_label_ErrorReferenceFolder"
+msgstr ""
+
+#. Default: "Description"
+#: ./content/Link.py:25
 msgid "description_label_Link"
 msgstr "Descripción"
 
@@ -257,7 +397,13 @@ msgstr ""
 msgid "heading_documentation_search"
 msgstr ""
 
+#. Default: "Enter additional names (no need to include the current owner) for those who have contributed to this entry, one per line."
+#: ./content/schemata.py:91
+msgid "help_contributors"
+msgstr ""
+
 #. Default: "More details on the question, if not evident from the title."
+#: ./content/FAQ.py:18
 msgid "help_detailed_question"
 msgstr "Más detalles sobre la pregunta, si no es suficientemente claro el título."
 
@@ -315,7 +461,18 @@ msgstr "Audiencias"
 msgid "label_click_to_enlarge"
 msgstr "Click para ampliar"
 
+#. Default: "Contributors"
+#: ./content/schemata.py:89
+msgid "label_contributors"
+msgstr ""
+
+#. Default: "Description"
+#: ./content/LinkFolder.py:36
+msgid "label_description_LinkFolder"
+msgstr ""
+
 #. Default: "Detailed Question"
+#: ./content/FAQ.py:20
 msgid "label_detailed_question"
 msgstr "Pregunta detallada"
 
@@ -391,16 +548,37 @@ msgstr ""
 msgid "phc_any_version"
 msgstr "Cualquier versión"
 
+#. Default: "One type of audience on each line. If you leave this blank, audience information will not be used. Audience is typically 'End user', 'Developer' and similar."
+#: ./content/HelpCenter.py:72
+msgid "phc_audience_helpcenter"
+msgstr ""
+
+#. Default: "Audience(s) this item is targetted at."
+#: ./content/schemata.py:78
+msgid "phc_audiences"
+msgstr ""
+
 #. Default: "Body"
 msgid "phc_body"
 msgstr "Cuerpo del texto"
+
+#. Default: "Constrain the results of Help Center searches to this document area.\n                    Turn this off to search the entire site.\n                    This affects only the Help Center's search facility, not the global search.\n                "
+#: ./content/HelpCenter.py:140
+msgid "phc_constrainSearches_helpcenter"
+msgstr ""
 
 #. Default: "Instructions on how to contribute to and use this resource."
 #: ./skins/plone_help_center/helpcenter_view.pt:91
 msgid "phc_contrib_use"
 msgstr "Instrucciones de cómo contribuir y usar este recurso."
 
+#. Default: "Copyright info for all content in the helpcenter."
+#: ./content/HelpCenter.py:127
+msgid "phc_copyrights_helpcenter"
+msgstr ""
+
 #. Default: "Readers will be informed when content relates to versions not in this list, as it may be outdated."
+#: ./content/HelpCenter.py:100
 msgid "phc_current_versions_helpcenter"
 msgstr "Los lectores serán informados cuando el contenido haga referencia a versiones que no estén en la lista, podría estar obsoleto."
 
@@ -428,18 +606,32 @@ msgid "phc_desc_body_tutorial"
 msgstr "Cuerpo del texto"
 
 #. Default: "An explanation of the term."
+#: ./content/Definition.py:23
 msgid "phc_desc_definition"
 msgstr "Una explicación del término."
 
 #. Default: "Description of the FAQ Container."
+#: ./content/FAQFolder.py:33
 msgid "phc_desc_folder"
 msgstr "Descripción"
 
 #. Default: "Description of the Glossary."
+#: ./content/Glossary.py:32
 msgid "phc_desc_folder_glossary"
 msgstr "Descripción"
 
+#. Default: "Description for the reference manual section."
+#: ./content/ReferenceManualFolder.py:35
+msgid "phc_desc_folder_referencemanual"
+msgstr ""
+
+#. Default: "Description for the tutorials section."
+#: ./content/TutorialFolder.py:34
+msgid "phc_desc_folder_tutorial"
+msgstr ""
+
 #. Default: "Description for the Help Center."
+#: ./content/HelpCenter.py:56
 msgid "phc_desc_helpcenter"
 msgstr "Descripción"
 
@@ -447,11 +639,14 @@ msgstr "Descripción"
 msgid "phc_desc_howto_body"
 msgstr "Descripción"
 
-#. Default: "Description for the How-to Container."
+#. Default: "Description for the How-to section."
+#: ./content/HowToFolder.py:34
+#, fuzzy
 msgid "phc_desc_howto_folder"
 msgstr "Descripción"
 
-#. Default: "Web address"
+#. Default: "Web address."
+#: ./content/Link.py:37
 #, fuzzy
 msgid "phc_desc_link_url"
 msgstr "Dirección web."
@@ -462,6 +657,7 @@ msgid "phc_desc_tutorial_page"
 msgstr "Introduzca una breve descripción."
 
 #. Default: "Description for the Video section."
+#: ./content/InstructionalVideoFolder.py:33
 msgid "phc_desc_video_folder"
 msgstr "Descripción"
 
@@ -516,11 +712,17 @@ msgstr "Glosario de términos"
 msgid "phc_glossary_title"
 msgstr "Definiciones del glosario"
 
+#. Default: "Explanation of the error."
+#: ./content/ErrorReference.py:17
+msgid "phc_help_body_ErrorReference"
+msgstr ""
+
 #. Default: "Brief explanation of the How To."
 msgid "phc_help_detailed_howto"
 msgstr "Breve explicación del How-to."
 
 #. Default: "Brief explanation of the video's content."
+#: ./content/InstructionalVideo.py:23
 msgid "phc_help_detailed_video"
 msgstr "Breve explicación del contenido del video."
 
@@ -532,27 +734,32 @@ msgstr "Un resumen del Manual de referencia -- tema y alcance. Se mostrará en ca
 msgid "phc_help_tutorial_summary"
 msgstr "Un resumen del Tutorial -- propósitos y alcance. Se mostrará en cada página del manual."
 
-#. Default: "Length (in minutes) of the video"
+#. Default: "Length (in minutes) of the video."
+#: ./content/InstructionalVideo.py:59
 #, fuzzy
 msgid "phc_help_video_duration"
 msgstr "Duración (en minutos) del video."
 
-#. Default: "Height of the video"
+#. Default: "Height of the video."
+#: ./content/InstructionalVideo.py:85
 #, fuzzy
 msgid "phc_help_video_height"
 msgstr "Altura del video."
 
-#. Default: "Add a screenshot by clicking the \'Browse\' button. Add a screenshot that highlights the content of the instructional video.""
+#. Default: "Add a screenshot by clicking the \"Browse\" button.\n                          Add a screenshot that highlights the content of the instructional video."
+#: ./content/InstructionalVideo.py:49
 #, fuzzy
 msgid "phc_help_video_screenshot"
 msgstr "Añada una captura de pantalla haciendo click sobre el botón 'Explorar'. Añada una captura que represente el contenido del video didáctico."
 
-#. Default: "Width of the video"
+#. Default: "Width of the video."
+#: ./content/InstructionalVideo.py:72
 #, fuzzy
 msgid "phc_help_video_width"
 msgstr "Ancho del video."
 
 #. Default: "Click 'Browse' to upload a Flash .swf file."
+#: ./content/InstructionalVideo.py:35
 msgid "phc_help_videofile_description"
 msgstr "Pulse el botón 'Explorar' para subir un video en formato Flash (extensión .swf)."
 
@@ -594,6 +801,11 @@ msgstr "Secciones"
 msgid "phc_label_ErrorReference"
 msgstr "Descripción"
 
+#. Default: "Audiences"
+#: ./content/schemata.py:76
+msgid "phc_label_audiences"
+msgstr ""
+
 #. Default: "Body text"
 msgid "phc_label_body_ErrorReference"
 msgstr "Cuerpo del texto"
@@ -602,7 +814,18 @@ msgstr "Cuerpo del texto"
 msgid "phc_label_body_tutorial"
 msgstr "Cuerpo del texto"
 
-#. Default: "Current versions"
+#. Default: "Constrain Searches"
+#: ./content/HelpCenter.py:138
+msgid "phc_label_constrainSearches_helpcenter"
+msgstr ""
+
+#. Default: "Copyright"
+#: ./content/HelpCenter.py:125
+msgid "phc_label_copyrights_helpcenter"
+msgstr ""
+
+#. Default: "Current Versions"
+#: ./content/HelpCenter.py:102
 #, fuzzy
 msgid "phc_label_current_versions_helpcenter"
 msgstr "Versiones actuales"
@@ -612,10 +835,12 @@ msgid "phc_label_default_importance_helpcenter"
 msgstr "Relevancia por defecto"
 
 #. Default: "Definition"
+#: ./content/Definition.py:25
 msgid "phc_label_definition"
 msgstr "Definición"
 
 #. Default: "Description"
+#: ./content/HelpCenter.py:58
 msgid "phc_label_desc_helpcenter"
 msgstr "Descripción"
 
@@ -624,22 +849,32 @@ msgid "phc_label_detailed_howto"
 msgstr "Resumen"
 
 #. Default: "Summary"
+#: ./content/InstructionalVideo.py:25
 msgid "phc_label_detailed_video"
 msgstr "Resumen"
 
 #. Default: "Description"
+#: ./content/FAQFolder.py:35
 msgid "phc_label_folder"
 msgstr "Descripción"
 
 #. Default: "Description"
+#: ./content/Glossary.py:34
 msgid "phc_label_folder_glossary"
 msgstr "Descripción"
 
 #. Default: "Description"
+#: ./content/ReferenceManualFolder.py:37
+msgid "phc_label_folder_referencemanual"
+msgstr ""
+
+#. Default: "Description"
+#: ./content/TutorialFolder.py:36
 msgid "phc_label_folder_tutorial"
 msgstr "Descripción"
 
 #. Default: "Description"
+#: ./content/HowToFolder.py:36
 msgid "phc_label_howto_folder"
 msgstr "Descripción"
 
@@ -652,10 +887,12 @@ msgid "phc_label_importance_helpcenter"
 msgstr "Relevancia"
 
 #. Default: "URL"
+#: ./content/Link.py:39
 msgid "phc_label_link_url"
 msgstr "URL"
 
 #. Default: "Referenced Items"
+#: ./content/schemata.py:129
 msgid "phc_label_reference"
 msgstr "Elementos referenciados"
 
@@ -664,16 +901,25 @@ msgid "phc_label_referencemanual_description"
 msgstr "Descripción"
 
 #. Default: "Related keywords"
+#: ./content/schemata.py:104
 msgid "phc_label_related"
 msgstr "Palabras clave relacionadas"
 
 #. Default: "Sections"
+#: ./content/schemata.py:60
 msgid "phc_label_sections"
 msgstr "Secciones"
 
 #. Default: "Sections"
+#: ./content/HelpCenter.py:113
+#: ./content/schemata.py:218
 msgid "phc_label_sections-vocab"
 msgstr "Secciones"
+
+#. Default: "Start Here"
+#: ./content/schemata.py:114
+msgid "phc_label_starthere"
+msgstr ""
 
 #. Default: "Tutorial Description"
 msgid "phc_label_tutorial_description"
@@ -684,34 +930,42 @@ msgid "phc_label_tutorial_page"
 msgstr "Descripción"
 
 #. Default: "Versions"
+#: ./content/HelpCenter.py:89
 msgid "phc_label_version_helpcenter"
 msgstr "Versiones"
 
 #. Default: "Versions"
+#: ./content/schemata.py:43
 msgid "phc_label_versions"
 msgstr "Versiones"
 
 #. Default: "Duration"
+#: ./content/InstructionalVideo.py:61
 msgid "phc_label_video_duration"
 msgstr "Duración"
 
 #. Default: "Description"
+#: ./content/InstructionalVideoFolder.py:35
 msgid "phc_label_video_folder"
 msgstr "Descripción"
 
 #. Default: "Height"
+#: ./content/InstructionalVideo.py:87
 msgid "phc_label_video_height"
 msgstr "Descripción"
 
 #. Default: "Screenshot"
+#: ./content/InstructionalVideo.py:47
 msgid "phc_label_video_screenshot"
 msgstr "Captura de video"
 
 #. Default: "Width"
+#: ./content/InstructionalVideo.py:74
 msgid "phc_label_video_width"
 msgstr "Ancho"
 
 #. Default: "Flash File (.swf)"
+#: ./content/InstructionalVideo.py:37
 msgid "phc_label_videofile_description"
 msgstr "Archivo en formato Flash (extensión .swf)"
 
@@ -747,6 +1001,7 @@ msgid "phc_previous"
 msgstr "Anterior:"
 
 #. Default: "Set one or more references to HelpCenter items."
+#: ./content/schemata.py:131
 msgid "phc_reference"
 msgstr "Establece una o más referencias a elementos del centro de ayuda."
 
@@ -782,12 +1037,25 @@ msgid "phc_search_results_advanced"
 msgstr ""
 
 #. Default: "Section(s) that this item should appear in."
+#: ./content/schemata.py:63
 msgid "phc_sections"
 msgstr "Sección(es) en que este elemento debería aparecer."
 
-#. Default: "Define the available sections for classifying these items."
+#. Default: "One section on each line. Used for grouping items.\n                          If you leave this blank, the help center's\n                          sections will be used. If both are blank,\n                          sections will not be used."
+#: ./content/schemata.py:220
+#, fuzzy
 msgid "phc_sections_vocab"
 msgstr "Defina las secciones disponibles para clasificar estos elementos."
+
+#. Default: "Marks this as a good starting point for its section. Only key documents should have this property."
+#: ./content/schemata.py:116
+msgid "phc_starthere"
+msgstr ""
+
+#. Default: "One section on each line. Used for grouping items. May be overriden in individual help center folders."
+#: ./content/HelpCenter.py:114
+msgid "phc_topsections_vocab"
+msgstr ""
 
 #. Default: "Tutorials"
 #: ./skins/plone_help_center/helpcenter_view.pt:67
@@ -817,11 +1085,14 @@ msgstr "Volver al Glosario"
 msgid "phc_up_to_toc"
 msgstr "Volver al índice"
 
-#. Default: "Versions that items in help can refer to."
+#. Default: "One version on each line, if you're documenting different versions of software. If you leave this blank, version information will not be used."
+#: ./content/HelpCenter.py:87
+#, fuzzy
 msgid "phc_version_helpcenter"
 msgstr "Versiones a que elementos en la ayuda pueden referirse."
 
-#. Default: "Versions of product that apply to this item (leave blank if not version-specific)"
+#. Default: "'Versions of product that apply to this item\n                                       (leave blank if not version-specific)."
+#: ./content/schemata.py:46
 #, fuzzy
 msgid "phc_versions"
 msgstr "Versiones del producto aplicables a este elemento (dejar en blanco si no es específico de una versión)"

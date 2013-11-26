@@ -3,7 +3,8 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import phcMessageFactory as _
+from Products.PloneHelpCenter.config import PROJECTNAME
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
 
@@ -15,16 +16,15 @@ DefinitionSchema = HelpCenterBaseSchema + Schema((
         required=1,
         primary=1,
         accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
+        default_content_type='text/plain',
+        allowable_content_types=('text/plain',),
         storage=AttributeStorage(),  # Needed for HistoryAwareMixin
-        widget = TextAreaWidget(
-                    description = 'An explanation of the term.',
-                    description_msgid = "phc_desc_definition",
-                    label = "Definition",
-                    label_msgid = "phc_label_definition",
-                    rows = 5,
-                    i18n_domain = "plonehelpcenter",
+        widget=TextAreaWidget(
+                    description=_("phc_desc_definition",
+                                  default=u'An explanation of the term.'),
+                    label=_("phc_label_definition",
+                            default=u"Definition"),
+                    rows=5,
                     )
         ),
     ),) + GenericHelpCenterItemSchema

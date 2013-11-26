@@ -2,9 +2,9 @@
 <object name="HelpCenterHowTo" meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="plonehelpcenter"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">How-to</property>
+ <property name="title" i18n:translate="">How-to</property>
  <property
-    name="description">A How-to is a document describing how to address a single, common
+    name="description" i18n:translate="">A How-to is a document describing how to address a single, common
       use-case or issue. You may add images and files as attachments.
       </property>
  <property name="icon_expr">string:${portal_url}/howto_icon.gif</property>

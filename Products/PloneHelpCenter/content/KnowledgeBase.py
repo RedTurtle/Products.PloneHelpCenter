@@ -35,7 +35,7 @@ class HelpCenterKnowledgeBase(PHCFolder, folder.ATBTreeFolder):
     filter_content_types = 1
     allowed_content_types = ('HelpCenterTutorial', 'HelpCenterHowTo', 'Topic')
 
-    typeDescription= 'A Single-Folder KnowledgeBase that can organize a large number of how-tos and tutorials by topic and audience.'
+    typeDescription = 'A Single-Folder KnowledgeBase that can organize a large number of how-tos and tutorials by topic and audience.'
     typeDescMsgId = 'description_edit_knowledgebase'
 
     content_icon = 'helpcenter_icon.gif'

@@ -4,8 +4,8 @@
         i18n:domain="plonehelpcenter"
         xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-    <property name="title">Section</property>
-    <property name="description">
+    <property name="title" i18n:translate="">Section</property>
+    <property name="description" i18n:translate="">
       A section of a reference manual containing ReferenceManualPages and
       other ReferenceManualSections.
     </property>

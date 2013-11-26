@@ -4,9 +4,9 @@
    i18n:domain="plonehelpcenter"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
- <property name="title">Reference Manual</property>
+ <property name="title" i18n:translate="">Reference Manual</property>
  <property
-    name="description">A reference manual containing ReferenceManualPages,
+    name="description" i18n:translate="">A reference manual containing ReferenceManualPages,
       ReferenceManualSections, Files and Images.
       </property>
  <property name="icon_expr">string:${portal_url}/referencemanual_icon.gif</property>

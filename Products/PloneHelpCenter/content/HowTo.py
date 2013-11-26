@@ -7,7 +7,7 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 
-from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.config import PROJECTNAME
 from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
 from schemata import HelpCenterItemSchemaNarrow
 from PHCContent import PHCContentMixin, HideOwnershipFields, IHelpCenterContent
@@ -41,7 +41,7 @@ class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
 
     content_icon = 'howto_icon.gif'
 
-    typeDescription= 'A How-to is a document describing how to address a single, common use-case or issue. You may add images and files as attachments.'
+    typeDescription = 'A How-to is a document describing how to address a single, common use-case or issue. You may add images and files as attachments.'
     typeDescMsgId = 'description_edit_howto'
 
     schema = HowToSchema
