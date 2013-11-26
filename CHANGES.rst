@@ -4,7 +4,7 @@ HISTORY
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed translations [cekk]
 
 
 4.0 (2013-09-21)
